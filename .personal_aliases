@@ -1,0 +1,21 @@
+#!/bin/bash
+# Personal Aliases
+
+# SSH
+alias home='ssh reyco@reyco.home.com'
+alias homeRDP='ssh -L 3389:192.168.1.150:3389 reyco@reyco.home.com'
+alias homeDevelopment='ssh -g -L 4000:192.168.1.240:4000 reyco@reyco.home.com'
+alias homePlex='ssh -L 3389:192.168.1.150:3389 reyco@reyco.home.com'
+
+# Home folders
+alias dev='cd ~/development'
+alias plex='cd ~/plex'
+alias couchpotato='cd ~/plex/couchpotato'
+alias sickrage='cd ~/plex/sickrage'
+alias plexpy='cd ~/plex/plexpy'
+
+# Tests
+alias node-test='node ./node_modules/lab/bin/lab -e development -v -m 1000'
+
+# Fun
+alias cow='fortune | cowsay'
