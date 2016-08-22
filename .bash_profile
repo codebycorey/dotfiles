@@ -14,7 +14,6 @@ fi
 
 #   Imported Packages
 #   -----------------------------------------------
-
 #   Load RVM into a shell session *as a function*
 if [[ -s "$HOME/.rvm/scripts/rvm" ]]; then
     echo 'Sourcing .rvm...'
@@ -28,7 +27,6 @@ fi
 
 #   Git scripts
 #   -----------------------------------------------
-
 #   Load git prompt for bash display
 if [[ -s "$HOME/.git-prompt.sh" ]]; then
     echo 'Sourcing .git-prompt.sh...'
@@ -42,7 +40,6 @@ fi
 
 #   Aliases
 #   -----------------------------------------------
-
 #   Aliases that I personally use
 if [[ -s "$HOME/.personal_aliases" ]]; then
     echo 'Sourcing .personal_aliases...'
