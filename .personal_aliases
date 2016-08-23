@@ -6,10 +6,9 @@
 #
 #  Sections:
 #  0.   Make Terminal Better (remapping defaults and adding functionality)
-#  1.   Development
-#  2.   File And Folder Management
-#  3.   Searching
-#  6.   Networking
+#  1.   File And Folder Management
+#  2.   Searching
+#  3.   Networking
 #
 #  ---------------------------------------------------------------------------
 
@@ -46,28 +45,8 @@ alias editprofile='atom ~/.bash_profile;'   # Edit Profile: Opens bash profile
 alias cow='fortune | cowsay'                # cow           Make cow speak
 alias weather='curl -4 http://wttr\.in'     # Weather:      Opens Weather App
 
-#   -----------------------------
-#   1.  Development
-#   -----------------------------
-# Create alias on all the folders in my workspace/code/homes directory to take me to that directory by just typing in folder
-for a in $(ls ~/develop/); do alias $a="cd ~/develop/$a"; done
-# Tests
-alias node-test='node ./node_modules/lab/bin/lab -e development -v -m 1000'
-
-alias apacheedit='sudo edit /etc/httpd/httpd.conf'      # apacheEdit:       Edit httpd.conf
-alias apacherestart='sudo apachectl graceful'           # apacheRestart:    Restart Apache
-alias edithosts='sudo edit /etc/hosts'                  # editHosts:        Edit /etc/hosts file
-alias herr='tail /var/log/httpd/error_log'              # herr:             Tails HTTP error logs
-alias apachelogs="less +F /var/log/apache2/error_log"   # Apachelogs:   Shows apache error logs
-httpHeaders () { /usr/bin/curl -I -L $@ ; }             # httpHeaders:      Grabs headers from web page
-
-#   httpDebug:  Download a web page and show info on what took time
-#   -------------------------------------------------------------------
-httpDebug () { /usr/bin/curl $@ -o /dev/null -w "dns: %{time_namelookup} connect: %{time_connect} pretransfer: %{time_pretransfer} starttransfer: %{time_starttransfer} total: %{time_total}\n" ; }
-
-
 #   -------------------------------
-#   2.  FILE AND FOLDER MANAGEMENT
+#   1.  FILE AND FOLDER MANAGEMENT
 #   -------------------------------
 zipf () { zip -r "$1".zip "$1" ; }          # zipf:         To create a ZIP archive of a folder
 alias numFiles='echo $(ls -1 | wc -l)'      # numFiles:     Count of non-hidden files in current dir
@@ -99,7 +78,7 @@ extract () {
 }
 
 #   ---------------------------
-#   3.  SEARCHING
+#   2.  SEARCHING
 #   ---------------------------
 alias qfind="find . -name "                 # qfind:    Quickly search for file
 ff () { /usr/bin/find . -name "$@" ; }      # ff:       Find file under the current directory
@@ -108,7 +87,7 @@ ffe () { /usr/bin/find . -name '*'"$@" ; }  # ffe:      Find file whose name end
 
 
 #   ---------------------------
-#   4.  NETWORKING
+#   3.  NETWORKING
 #   ---------------------------
 
 alias myip='curl ip.appspot.com'                    # myip:         Public facing IP Address

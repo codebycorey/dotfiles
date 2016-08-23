@@ -36,23 +36,30 @@ else
 fi
 
 
+#   -----------------------------
+#     Bash aliases
+#   -----------------------------
+if [[ -s "./.personal_aliases" ]]; then
+    echo 'Copying Personal Aliases...'
+    cp ./.personal_aliases ~/.personal_aliases
+fi
 
+if [[ -s "./.system_aliases" ]]; then
+    echo 'Copying System Aliases...'
+    cp ./.system_aliases ~/.system_aliases
+fi
 
+if [[ -s "./.development_aliases" ]]; then
+    echo 'Copying Development Aliases...'
+    cp ./.development_aliases ~/.development_aliases
+fi
 
-
-
-
-
-
-
-
-
-
-
-
-
+if [[ -s "./.mac_aliases" ]]; then
+    echo 'Copying Mac Aliases...'
+    cp ./.mac_aliases ~/.mac_aliases
+fi
 
 if [[ -s "./.bash_profile" ]]; then
-    echo 'Copying profile'
-    # cp ./bash_profile ~/.bash_profile
+    echo 'Copying Bash Profile...'
+    cp ./.bash_profile ~/.bash_profile
 fi
