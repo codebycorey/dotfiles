@@ -23,6 +23,13 @@
        if [[ $RET = 0 ]]; then echo -e '\033[01;32m'; else echo -e '\033[01;31m'; fi;
     }
 
+    GIT_PS1_SHOWDIRTYSTATE="true"
+    GIT_PS1_SHOWSTASHSTAT="true"
+    GIT_PS1_SHOWUNTRACKEDFILES="true"
+    GIT_PS1_SHOWUPSTREAM="auto"
+    GIT_PS1_SHOWCOLORHINTS="true"
+
+
     # export PS1='\[\033[01;32m\] \[$(_returnLambda)\]λ \[\e[31;40m\]\W$(__git_ps1) \[\e[1;37m\]\$\[\033[00m\] '
     # export PS1="\[\e[0;37m\]________________________________________________________________________________\n| \[\e[0;32m\]\u:\w \[\e[0;34m\]\$(__git_ps1) \n\[\e[0m\]| => "
     export PS1="\[\e[0;32m\]\W\[\e[0;34m\]\$(__git_ps1) \[\e[0m\]"
