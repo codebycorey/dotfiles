@@ -39,27 +39,31 @@ fi
 #   -----------------------------
 #     Bash aliases
 #   -----------------------------
-if [[ -s "./.personal_aliases" ]]; then
+if [[ -s "./dots/.personal_aliases" ]]; then
     echo 'Copying Personal Aliases...'
-    cp ./.personal_aliases ~/.personal_aliases
+    cp ./dots/.personal_aliases ~/.personal_aliases
 fi
 
-if [[ -s "./.system_aliases" ]]; then
+if [[ -s "./dots/.system_aliases" ]]; then
     echo 'Copying System Aliases...'
-    cp ./.system_aliases ~/.system_aliases
+    cp ./dots/.system_aliases ~/.system_aliases
 fi
 
-if [[ -s "./.development_aliases" ]]; then
+if [[ -s "./dots/.development_aliases" ]]; then
     echo 'Copying Development Aliases...'
-    cp ./.development_aliases ~/.development_aliases
+    cp ./dots/.development_aliases ~/.development_aliases
 fi
 
-if [[ -s "./.mac_aliases" ]]; then
+if [[ -s "./dots/.mac_aliases" ]]; then
     echo 'Copying Mac Aliases...'
-    cp ./.mac_aliases ~/.mac_aliases
+    cp ./dots/.mac_aliases ~/.mac_aliases
 fi
 
-if [[ -s "./.bash_profile" ]]; then
+if [[ -s "./dots/.bash_profile" ]]; then
     echo 'Copying Bash Profile...'
-    cp ./.bash_profile ~/.bash_profile
+    cp ./dots/.bash_profile ~/.bash_profile
 fi
+
+./utils/dots_move_files_home
+
+
