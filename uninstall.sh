@@ -35,7 +35,6 @@ else
     echo 'Git Prompt already installed'
 fi
 
-dots_sym_link_dotfiles
 # ./utils/dots_move_files_home
 
 
