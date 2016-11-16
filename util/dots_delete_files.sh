@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Backup bash script file if not a symlink
+# Restore backups if present
 # $1 = file name
 function restore_backup_bash_scripts () {
 
@@ -10,32 +10,26 @@ function restore_backup_bash_scripts () {
     fi
 }
 
-# Deletes current files and symlinks dotfiles
+# Deletes current symlink dotfiles
 # $1 = file name
-# $2 = project absolute path
 function delete_symlink_files_home () {
 
-echo $1
-
-
-
-    if [ -L ~/$1 ] && [ ! -f ~/$1 ]; then
-        echo "Deleting: ~/$1"
+    if [ -L ~/$1 ]; then
+        echo "Deleting: ~/$1..."
         rm ~/$1
     fi
 }
 
-#  Move bash files to home directory
-#  $1 = project absolute path
+#  Deletes dot files and restores from backup if restore is requested
+#  $1 = restore (optional)
 function dots_delete_files () {
 
     for file in $(ls -A ./dots); do
         delete_symlink_files_home $file
     done
 
-    if [ -d ~/.dotbackup ]; then
+    if [ $# -eq 1 ] && [ $1 = 'restore' ] && [ -d ~/.dotbackup ]; then
         for file in $(ls -A ~/.dotbackup); do
-
             restore_backup_bash_scripts $file
         done
     fi
