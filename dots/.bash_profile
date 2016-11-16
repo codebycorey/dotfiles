@@ -1,5 +1,5 @@
 #!/bin/bash
-
+echo 'suck it'
 echo 'Sourcing ~/.bash_profile...'
 
 #   -------------------------------
@@ -45,18 +45,7 @@ if [[ -s "$HOME/.personal_aliases" ]]; then
     echo 'Sourcing .personal_aliases...'
     source "$HOME/.personal_aliases"
 fi
-if [[ -s "$HOME/.system_aliases" ]]; then
-    echo 'Sourcing .system_aliases...'
-    source "$HOME/.system_aliases"
-fi
-if [[ -s "$HOME/.development_aliases" ]]; then
-    echo 'Sourcing .development_aliases...'
-    source "$HOME/.development_aliases"
-fi
-if [[ -s "$HOME/.mac_aliases" ]]; then
-    echo 'Sourcing .mac_aliases...'
-    source "$HOME/.mac_aliases"
-fi
+
 #   Load additional aliases
 if [[ -s "$HOME/.hui_aliases" ]]; then
     echo 'Sourcing .hui_aliases...'

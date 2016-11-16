@@ -53,4 +53,3 @@ set shiftwidth=4
 set softtabstop=4
 " Sets indentation to spaces instead of tabs
 set expandtab
-

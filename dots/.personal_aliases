@@ -62,23 +62,23 @@ alias make10mb='mkfile 10m ./10MB.dat'      # make10mb:     Creates a file of 10
 #   ---------------------------------------------------------
 extract () {
     if [ -f $1 ] ; then
-      case $1 in
-        *.tar.bz2)   tar xjf $1     ;;
-        *.tar.gz)    tar xzf $1     ;;
-        *.bz2)       bunzip2 $1     ;;
-        *.rar)       unrar e $1     ;;
-        *.gz)        gunzip $1      ;;
-        *.tar)       tar xf $1      ;;
-        *.tbz2)      tar xjf $1     ;;
-        *.tgz)       tar xzf $1     ;;
-        *.zip)       unzip $1       ;;
-        *.Z)         uncompress $1  ;;
-        *.7z)        7z x $1        ;;
-        *)     echo "'$1' cannot be extracted via extract()" ;;
-         esac
-     else
-         echo "'$1' is not a valid file"
-     fi
+        case $1 in
+            *.tar.bz2)   tar xjf $1     ;;
+            *.tar.gz)    tar xzf $1     ;;
+            *.bz2)       bunzip2 $1     ;;
+            *.rar)       unrar e $1     ;;
+            *.gz)        gunzip $1      ;;
+            *.tar)       tar xf $1      ;;
+            *.tbz2)      tar xjf $1     ;;
+            *.tgz)       tar xzf $1     ;;
+            *.zip)       unzip $1       ;;
+            *.Z)         uncompress $1  ;;
+            *.7z)        7z x $1        ;;
+            *)     echo "'$1' cannot be extracted via extract()" ;;
+        esac
+    else
+        echo "'$1' is not a valid file"
+    fi
 }
 
 #   ---------------------------
@@ -150,36 +150,36 @@ httpDebug () { /usr/bin/curl $@ -o /dev/null -w "dns: %{time_namelookup} connect
 
 #   Change Prompt
 #   ------------------------------------------------------------
-    PROMPT_COMMAND='RET=$?;'
+PROMPT_COMMAND='RET=$?;'
 
-    function _returnLambda {
-       if [[ $RET = 0 ]]; then echo -e '\033[01;32m'; else echo -e '\033[01;31m'; fi;
-    }
+function _returnLambda {
+    if [[ $RET = 0 ]]; then echo -e '\033[01;32m'; else echo -e '\033[01;31m'; fi;
+}
 
-    GIT_PS1_SHOWDIRTYSTATE="true"
-    GIT_PS1_SHOWSTASHSTAT="true"
-    GIT_PS1_SHOWUNTRACKEDFILES="true"
-    GIT_PS1_SHOWUPSTREAM="auto"
-    GIT_PS1_SHOWCOLORHINTS="true"
+GIT_PS1_SHOWDIRTYSTATE="true"
+GIT_PS1_SHOWSTASHSTAT="true"
+GIT_PS1_SHOWUNTRACKEDFILES="true"
+GIT_PS1_SHOWUPSTREAM="auto"
+GIT_PS1_SHOWCOLORHINTS="true"
 
 
-    # export PS1='\[\033[01;32m\] \[$(_returnLambda)\]λ \[\e[31;40m\]\W$(__git_ps1) \[\e[1;37m\]\$\[\033[00m\] '
-    # export PS1="\[\e[0;37m\]________________________________________________________________________________\n| \[\e[0;32m\]\u:\w \[\e[0;34m\]\$(__git_ps1) \n\[\e[0m\]| => "
-    export PS1="\[\e[0;32m\]\W\[\e[0;34m\]\$(__git_ps1) \[\e[0m\]"
+# export PS1='\[\033[01;32m\] \[$(_returnLambda)\]λ \[\e[31;40m\]\W$(__git_ps1) \[\e[1;37m\]\$\[\033[00m\] '
+# export PS1="\[\e[0;37m\]________________________________________________________________________________\n| \[\e[0;32m\]\u:\w \[\e[0;34m\]\$(__git_ps1) \n\[\e[0m\]| => "
+export PS1="\h: \[\e[0;32m\]\W\[\e[0;34m\]\$(__git_ps1) \[\e[0m\]"
 
 #   Set Paths
 #   ------------------------------------------------------------
-    export PATH="$PATH:/usr/local/bin/"
-    export PATH="$PATH:/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin"
+export PATH="$PATH:/usr/local/bin/"
+export PATH="$PATH:/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin"
 
 #   Set Default Editor (change 'Nano' to the editor of your choice)
 #   ------------------------------------------------------------
-    export EDITOR=/usr/bin/vim
+export EDITOR=/usr/bin/vim
 
 #   Set default blocksize for ls, df, du
 #   from this: http://hints.macworld.com/comment.php?mode=view&cid=24491
 #   ------------------------------------------------------------
-    export BLOCKSIZE=1k
+export BLOCKSIZE=1k
 
 #   Add color to terminal
 #   (this is all commented out as I use Mac Terminal Profiles)
@@ -192,30 +192,30 @@ httpDebug () { /usr/bin/curl $@ -o /dev/null -w "dns: %{time_namelookup} connect
 #   Set History
 #   -----------------------------
 #   don't put duplicate lines in the history.
-    HISTCONTROL=ignoredups:ignorespace
+HISTCONTROL=ignoredups:ignorespace
 
 #   append to the history file without overwriting it
-    shopt -s histappend
+shopt -s histappend
 
 #   history length
-    HISTSIZE=50000
-    HISTFILESIZE=100000
+HISTSIZE=50000
+HISTFILESIZE=100000
 
 #   Set System-Wide Resources
 #   -----------------------------------------------------------
 #   sets it to unlimited
-    ulimit -n 9999
+ulimit -n 9999
 
-    #   lr:  Full Recursive Directory Listing
-    #   ------------------------------------------
-    alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
+#   lr:  Full Recursive Directory Listing
+#   ------------------------------------------
+alias lr='ls -R | grep ":$" | sed -e '\''s/:$//'\'' -e '\''s/[^-][^\/]*\//--/g'\'' -e '\''s/^/   /'\'' -e '\''s/-/|/'\'' | less'
 
-    #   mans:   Search manpage given in agument '1' for term given in argument '2' (case insensitive)
-    #           displays paginated result with colored search terms and two lines surrounding each hit.             Example: mans mplayer codec
-    #   --------------------------------------------------------------------
-    mans () {
-        man $1 | grep -iC2 --color=always $2 | less
-    }
+#   mans:   Search manpage given in agument '1' for term given in argument '2' (case insensitive)
+#           displays paginated result with colored search terms and two lines surrounding each hit.             Example: mans mplayer codec
+#   --------------------------------------------------------------------
+mans () {
+    man $1 | grep -iC2 --color=always $2 | less
+}
 
 
 #   ---------------------------
