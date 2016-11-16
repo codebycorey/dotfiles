@@ -2,7 +2,7 @@
 
 # Backup bash script file if not a symlink
 # $1 = file name
-function backupBashScripts () {
+function backup_bash_scripts () {
 
     if [ -f ~/$1 ] && [ ! -L ~/$1 ]; then
         echo "Backing up bash_profile..."
@@ -13,9 +13,9 @@ function backupBashScripts () {
 # Deletes current files and symlinks dotfiles
 # $1 = file name
 # $2 = project absolute path
-function moveFilesHome () {
+function symlink_files_home () {
 
-    backupBashScripts $1
+    backup_bash_scripts $1
 
     if [ -L ~/$1 ]; then
         echo "~/$1 Already Exists:  Removing..."
@@ -32,10 +32,9 @@ function moveFilesHome () {
 
 #  Move bash files to home directory
 #  $1 = project absolute path
-function dots_sym_link_dotfiles () {
+function dots_move_files_home () {
 
-    for file in $(ls -A ./dots)
-    do
-        moveFilesHome $file $1
+    for file in $(ls -A ./dots); do
+        symlink_files_home $file $1
     done
 }
