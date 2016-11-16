@@ -5,8 +5,13 @@
 function backup_bash_scripts () {
 
     if [ -f ~/$1 ] && [ ! -L ~/$1 ]; then
-        echo "Backing up bash_profile..."
-        mv ~/$1 ~/backupBashScripts/$1.backup
+
+        if [ ! -d ~/.dotbackup ]; then
+            mkdir ~/.dotbackup
+        fi
+
+        echo "Backing up $1..."
+        mv ~/$1 ~/.dotbackup/$1.backup
     fi
 }
 

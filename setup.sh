@@ -4,7 +4,7 @@ source ./util/dots_move_files_home.sh
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-Install NVM for node management
+# Install NVM for node management
 if [[ ! -s "$HOME/.nvm/nvm.sh" ]]; then
     echo 'Installing NVM...'
     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.4/install.sh | bash
