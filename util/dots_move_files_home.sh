@@ -4,15 +4,22 @@
 # $1 = file name
 function backup_bash_scripts () {
 
-    if [ -f ~/$1 ] && [ ! -L ~/$1 ]; then
+    if [ ! -d ~/.dotbackup ]; then
+        mkdir ~/.dotbackup
+    fi
 
-        if [ ! -d ~/.dotbackup ]; then
-            mkdir ~/.dotbackup
-        fi
+    if [ -f ~/$1 ] && [ ! -L ~/$1 ]; then
 
         echo "Backing up $1..."
         mv ~/$1 ~/.dotbackup/$1.backup
     fi
+
+    # TODO: Plan to handle directories better in future
+    if [ -d ~/$1 ] && [ ! -L ~/$1 ]; then
+        echo "Backing up $1..."
+        mv -f ~/$1 ~/.dotbackup/$1
+    fi
+
 }
 
 # Deletes current files and symlinks dotfiles
