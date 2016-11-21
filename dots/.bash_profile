@@ -1,5 +1,5 @@
 #!/bin/bash
-echo 'suck it'
+
 echo 'Sourcing ~/.bash_profile...'
 
 #   -------------------------------
