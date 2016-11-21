@@ -38,4 +38,3 @@ else
 fi
 
 dots_move_files_home $DIR
-# ./utils/dots_move_files_home

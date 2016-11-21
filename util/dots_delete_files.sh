@@ -6,7 +6,12 @@ function restore_backup_bash_scripts () {
 
     if [ -f ~/.dotbackup/$1 ]; then
         echo "Restoring $1..."
-        cp --remove-destination ~/.dotbackup/$1 ~/"$(echo "$1" | sed -r 's/.backup//')"
+        cp -f ~/.dotbackup/$1 ~/"$(echo "$1" | sed 's/.backup//')"
+    fi
+
+    if [ -d ~/.dotbackup/$1 ]; then
+        echo "Restoring $1..."
+        cp -fR ~/.dotbackup/$1 ~/$1
     fi
 }
 
