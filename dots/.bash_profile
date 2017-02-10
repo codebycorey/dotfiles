@@ -46,6 +46,11 @@ if [[ -s "$HOME/.personal_aliases" ]]; then
     source "$HOME/.personal_aliases"
 fi
 
+if [[ -s "$HOME/.personal_scripts" ]]; then
+    echo 'Sourcing .personal_scripts...'
+    source "$HOME/.personal_scripts"
+fi
+
 #   Load additional aliases
 if [[ -s "$HOME/.hui_aliases" ]]; then
     echo 'Sourcing .hui_aliases...'
