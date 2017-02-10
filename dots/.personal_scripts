@@ -8,7 +8,7 @@
 
 function moveMovie () {
 
-    cp -R $1 /data/store1/Movies
+    cp -R "$1" /data/store1/Movies
 
     chmod -R 755 /data/store1/Movies
 }
