@@ -8,11 +8,6 @@
 
 function moveMovie () {
 
-    if [[ $(/usr/bin/id -u) -ne 0 ]]; then
-        echo "Not Running as root";
-        exit
-    fi
-
     cp -R $1 /data/store1/Movies
 
     chmod -R 755 /data/store1/Movies
