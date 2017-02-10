@@ -42,11 +42,22 @@ function symlink_files_home () {
     fi
 }
 
-#  Move bash files to home directory
+#  Create symlink of all dot files to home directory
 #  $1 = project absolute path
-function dots_move_files_home () {
+function full_dots_link_files_home () {
 
     for file in $(ls -A ./dots); do
+        symlink_files_home $file $1
+    done
+}
+
+#  Create symlink of basic bash files to home directory
+#  $1 = project absolute path
+function basic_dots_link_files_home () {
+
+    files=(".bash_profile" ".personal_aliases" ".personal_scripts")
+
+    for file in ${files[@]}; do
         symlink_files_home $file $1
     done
 }

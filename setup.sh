@@ -37,4 +37,8 @@ else
     echo 'Git Prompt already installed'
 fi
 
-dots_move_files_home $DIR
+if [ $# -eq 1 ] && [ $1 = 'basic' ]; then
+    basic_dots_link_files_home $DIR
+else
+    full_dots_link_files_home $DIR
+fi
