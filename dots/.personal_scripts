@@ -6,7 +6,7 @@
 #
 #  ---------------------------------------------------------------------------
 
-function moveMovies () {
+function moveMovie () {
 
     if [[ $(/usr/bin/id -u) -ne 0 ]]; then
         echo "Not Running as root";
