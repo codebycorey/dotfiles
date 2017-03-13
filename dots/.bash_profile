@@ -56,6 +56,3 @@ if [[ -s "$HOME/.hui_aliases" ]]; then
     echo 'Sourcing .hui_aliases...'
     source "$HOME/.hui_aliases"
 fi
-
-
-clear
