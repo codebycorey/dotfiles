@@ -52,7 +52,7 @@ if [[ -s "$HOME/.personal_scripts" ]]; then
 fi
 
 #   Load additional aliases
-if [[ -s "$HOME/.hui_aliases" ]]; then
-    echo 'Sourcing .hui_aliases...'
-    source "$HOME/.hui_aliases"
+if [[ -s "$HOME/.bash_work" ]]; then
+    echo 'Sourcing .bash_work...'
+    source "$HOME/.bash_work"
 fi

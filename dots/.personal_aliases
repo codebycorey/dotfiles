@@ -108,10 +108,7 @@ alias openPorts='sudo lsof -i | grep LISTEN'        # openPorts:    All listenin
 alias showBlocked='sudo ipfw list'                  # showBlocked:  All ipfw rules inc/ blocked IPs
 
 # SSH
-alias home='ssh reyco@reyco.home.com'
-alias homeRDP='ssh -L 3389:192.168.1.150:3389 reyco@reyco.home.com'
-alias homeDevelopment='ssh -g -L 4000:192.168.1.240:4000 reyco@reyco.home.com'
-alias homePlex='ssh -L 3389:192.168.1.150:3389 reyco@reyco.home.com'
+alias server='ssh reyco@linux-server'
 
 #   ii:  display useful host related informaton
 #   -------------------------------------------------------------------
@@ -172,7 +169,11 @@ export PS1="\h: \[\e[0;32m\]\W\[\e[0;34m\]\$(__git_ps1) \[\e[0m\]"
 #   Set Paths
 #   ------------------------------------------------------------
 export PATH="$PATH:/usr/local/bin/"
-export PATH="$PATH:/usr/local/git/bin:/sw/bin/:/usr/local/bin:/usr/local/:/usr/local/sbin:/usr/local/mysql/bin"
+export PATH="$PATH:/usr/local/git/bin"
+export PATH="$PATH:/sw/bin/"
+export PATH="$PATH:/usr/local/"
+export PATH="$PATH:/usr/local/sbin"
+export PATH="$PATH:/usr/local/mysql/bin"
 
 #   Set Default Editor (change 'Nano' to the editor of your choice)
 #   ------------------------------------------------------------

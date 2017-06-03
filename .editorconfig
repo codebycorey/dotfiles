@@ -9,20 +9,3 @@ indent_style = space
 indent_size = 4
 quote_type = single
 
-[Makefile]
-indent_style = tab
-
-[*.js]
-space_after_control_statements = true
-space_after_anonymous_functions = true
-spaces_around_operators = true
-spaces_in_brackets = hybrid
-
-[*.hbs]
-indent_size = 4
-
-[*.html]
-indent_size = 4
-
-[package.json]
-indent_size = 4

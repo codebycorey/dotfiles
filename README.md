@@ -15,13 +15,13 @@ Install
 ```
 git clone git@github.com:rcodonnell/dotfiles.git
 ```
-Setup all dotfiles
+Setup basic dotfiles: Profile, Aliases, Scripts
 ```
 ./setup.sh
 ```
-Setup basic dotfiles: Profile, Aliases, Scripts
+Setup all dotfiles
 ```
-./setup.sh basic
+./setup.sh full
 ```
 Uninstall
 ```
